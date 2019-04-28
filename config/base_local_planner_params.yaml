@@ -1,0 +1,6 @@
+TrajectoryPlannerROS:
+
+  holonomic_robot: false
+  sim_time: 7.5
+  meter_scoring: true
+  
