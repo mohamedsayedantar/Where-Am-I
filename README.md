@@ -350,8 +350,20 @@ then you will see some thing like that for the two robots
     - update_min_a set to 0.01  --> the same as d
     
 
+## Results 
 
+the two robots reach to their goal successfully without any collision with any of the barriers, both of the robots almost have the same performance and reach the goal almost with the same time.
 
+below some photos showing the moment of arrival for each robot.
+
+![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R15.png)
+![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R16.png)
+![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R17.png)
+![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R18.png)
+![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R110.png)
+![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R112.png)
+![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R113.png)
+![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R114.png)
 
 
 
