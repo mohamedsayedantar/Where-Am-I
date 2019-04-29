@@ -49,6 +49,99 @@ during this project the AMCL package will be used to localize the robot in the p
 
 
 ## Model Configuration
+below the configuration made for Where Am I project
+
+some of the following package installation instructions might be required
+```
+$ sudo apt-get install ros-kinetic-navigation
+$ sudo apt-get install ros-kinetic-map-server
+$ sudo apt-get install ros-kinetic-move-base
+$ rospack profile
+$ sudo apt-get install ros-kinetic-amcl
+```
+
+Let's start by navigating to the src directory and creating a new empty package.
+
+```
+$ cd /home/workspace/catkin_ws/src/
+$ catkin_create_pkg udacity_bot
+```
+
+Next, create folders, `launch` and `worlds`, that will further define the structure of your package.
+
+```
+$ cd udacity_bot
+$ mkdir launch
+$ mkdir worlds
+```
+
+Let's create a simple world, with no objects or models that will be launched later in Gazebo.
+
+```
+$ cd worlds
+$ nano udacity.world
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Results
