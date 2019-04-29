@@ -202,67 +202,14 @@ this file include the following plugins for gazebo
 - plugin for the hokuyo sensor.
 - plugin for controlling the wheel joints.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-You can now use the launch file to launch your Gazebo environment!
-
+for the map create new folder named maps
 ```
-$ cd /home/workspace/catkin_ws/
-$ catkin_make
-$ source devel/setup.bash
-$ roslaunch udacity_bot udacity_world.launch
+$ cd /home/workspace/catkin_ws/src/udacity_bot/
+$ mkdir maps
+$ cd maps
 ```
 
-
-
-Next, in the launch folder, you will have to update `udacity_world.launch` so that Gazebo can load that URDF (the robot model).
-```
-$ nano udacity_world.launch
-```
-
-Add the following to the launch file (after `<launch>`)
-
-```xml
-<include file="$(find udacity_bot)/launch/robot_description.launch"/>
-```
-
-Add the following to the launch file (before `</launch>`)
-```xml
-<!--spawn a robot in gazebo world-->
-
-<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" 
-output="screen" args="-urdf -param robot_description -model udacity_bot"/>
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+You can then copy the two files `jackal_race.pgm` and `jackal_race.yaml` from the project repo into the “maps” folder.
 
 
 to launch your robot model run the following 
@@ -273,10 +220,74 @@ $ source devel/setup.bash
 $ roslaunch udacity_bot udacity_world.launch
 ```
 
+Note : the previous instructions for the provided robot, the same made for the other robot model at `udacity_world2.launch`, `robot_description2.launch`, `udacity_bot2.gazebo` and `udacity_bot2.xacro`.
 
+### AMCL
 
+Adaptive Monte Carlo Localization (AMCL) dynamically adjusts the number of particles over a period of time, as the robot navigates around in a map. This adaptive process offers a significant computational advantage over MCL.
 
+The ROS amcl package implements this variant and you will integrate this package with your robot to localize it inside the provided map.
 
+by creating a new launch file.
+```
+$ cd /home/workspace/catkin_ws/src/udacity_bot/launch/
+$ nano amcl.launch
+```
+
+the following my `amcl.launch` file
+```
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Map server -->
+  <arg name="map_file" default="$(find udacity_bot)/maps/jackal_race.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <!-- Localization-->
+  <node pkg="amcl" type="amcl" name="amcl" output="screen">
+    <remap from="scan" to="udacity_bot/laser/scan"/>
+    <param name="odom_frame_id" value="odom"/>
+    <param name="odom_model_type" value="diff-corrected"/>
+    <param name="base_frame_id" value="robot_footprint"/>
+    <param name="global_frame_id" value="map"/>
+    <param name="max_particles" value="200"/>
+    <param name="min_particles" value="100"/>
+    <param name="initial_pose_x" value="0.0"/>
+    <param name="initial_pose_y" value="0.0"/>
+    <param name="initial_pose_a" value="0.0"/>
+    <param name="update_min_d" value="0.005"/>
+    <param name="update_min_a" value="0.01"/>
+    <param name="laser_model_type" value="likelihood_field"/>
+    <param name="laser_likelihood_max_dist" value="2.0"/>
+    <param name="laser_min_range" value="-1"/>
+    <param name="laser_max_range" value="-1"/>
+  </node>
+
+<!-- Move base -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find udacity_bot)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find udacity_bot)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find udacity_bot)/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find udacity_bot)/config/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find udacity_bot)/config/base_local_planner_params.yaml" command="load" />
+    <remap from="cmd_vel" to="cmd_vel"/>
+    <remap from="odom" to="odom"/>
+    <remap from="scan" to="udacity_bot/laser/scan"/>
+    <param name="base_global_planner" type="string" value="navfn/NavfnROS" />
+    <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>
+  </node>
+</launch>
+```
+
+add the configuration files for the move_base package.
+
+```
+$ cd /home/workspace/catkin_ws/src/udacity_bot
+$ mkdir config
+$ cd config
+```
+
+copy the files from this repo located `config` folder to your config folder.
 
 
 
