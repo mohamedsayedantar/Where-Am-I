@@ -5,7 +5,6 @@
 Building a mobile robot for localization task and Creating a ROS package that launches this robot model in a Gazebo world and utilizes packages like AMCL and the Navigation Stack, trying to achieve the best possible localization results by Exploring, adding, and tuning specific parameters corresponding to each package.
 
 ![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R1.png)
-![robot2](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R2.png)
 
 
 
@@ -41,6 +40,10 @@ Because the robot may not always behave in a perfectly predictable way, it gener
 
 Monte Carlo localization (MCL), also known as particle filter localization, is an algorithm for robots to localize using a particle filter. Given a map of the environment, the algorithm estimates the position and orientation of a robot as it moves and senses the environment. The algorithm uses a particle filter to represent the distribution of likely states, with each particle representing a possible state, a hypothesis of where the robot is. The algorithm typically starts with a uniform random distribution of particles over the configuration space, meaning the robot has no information about where it is and assumes it is equally likely to be at any point in space. Whenever the robot moves, it shifts the particles to predict its new state after the movement. Whenever the robot senses something, the particles are resampled based on recursive Bayesian estimation, how well the actual sensed data correlate with the predicted state. Ultimately, the particles should converge towards the actual position of the robot.
 
+![map](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/map.png)
+
+
+## Background 
 
 
 
@@ -53,3 +56,8 @@ Monte Carlo localization (MCL), also known as particle filter localization, is a
 
 
 
+![robot2](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R2.png)
+
+https://en.wikipedia.org/wiki/Monte_Carlo_localization
+
+https://en.wikibooks.org/wiki/Robotics/Navigation/Localization
