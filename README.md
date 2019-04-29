@@ -318,7 +318,21 @@ then you will see some thing like that for the two robots
 ![robot2](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R14.png)
 
 
+### parameters 
 
+1. for `local_costmap_params.yaml` 
+    - update_frequency = 20.0
+    - publish_frequency = 25.0
+    - width = 3.5
+    - height = 3.5
+    - resolution = 0.05
+    
+2. for `global_costmap_params.yaml`
+    - pdate_frequency: 15.0
+    - publish_frequency: 20.0
+    - width: 500.0
+    - height: 500.0
+    - resolution: 0.05
 
 
 
