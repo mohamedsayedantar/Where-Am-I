@@ -126,7 +126,7 @@ Add the following to your launch file.
 <?xml version="1.0" encoding="UTF-8"?>
 
 <launch>
-
+  <include file="$(find udacity_bot)/launch/robot_description.launch"/>
   <arg name="world" default="empty"/> 
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
@@ -135,7 +135,7 @@ Add the following to your launch file.
   <arg name="debug" default="false"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find udacity_bot)/worlds/udacity.world"/>
+    <arg name="world_name" value="$(find udacity_bot)/worlds/jackal_race.world"/>
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="gui" value="$(arg gui)"/>
@@ -143,16 +143,9 @@ Add the following to your launch file.
     <arg name="debug" value="$(arg debug)"/>
   </include>
 
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -param robot_description -model udacity_bot"/>
+  <node name="rviz" pkg="rviz" type="rviz" respawn="false"/>
 </launch>
-```
-
-You can now use the launch file to launch your Gazebo environment!
-
-```
-$ cd /home/workspace/catkin_ws/
-$ catkin_make
-$ source devel/setup.bash
-$ roslaunch udacity_bot udacity_world.launch
 ```
 
 ### for Robot URDF
@@ -191,8 +184,49 @@ Copy the following into the above file.
   <!-- send urdf to param server -->
   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find udacity_bot)/urdf/udacity_bot.xacro'" />
 
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="false"/>
+  </node>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+
 </launch>
 ```
+
+for Gazebo Plugins the proper file for it
+at https://github.com/mohamedsayedantar/udacity_bot/blob/master/urdf/udacity_bot.gazebo
+
+this file include the following plugins for gazebo
+
+- plugin for the camera sensor.
+- plugin for the hokuyo sensor.
+- plugin for controlling the wheel joints.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You can now use the launch file to launch your Gazebo environment!
+
+```
+$ cd /home/workspace/catkin_ws/
+$ catkin_make
+$ source devel/setup.bash
+$ roslaunch udacity_bot udacity_world.launch
+```
+
+
 
 Next, in the launch folder, you will have to update `udacity_world.launch` so that Gazebo can load that URDF (the robot model).
 ```
@@ -213,8 +247,25 @@ Add the following to the launch file (before `</launch>`)
 output="screen" args="-urdf -param robot_description -model udacity_bot"/>
 ```
 
-Let's launch everything and check if the robot loads up properly.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+to launch your robot model run the following 
 ```
 $ cd /home/workspace/catkin_ws/
 $ catkin_make
