@@ -8,19 +8,11 @@ Building a mobile robot for localization task and Creating a ROS package that la
 
 
 
-## project outlines :
-- Abstract
-- Introduction
-- Background
-- Model Configuration
-- Results
-- Discussion
-- Future Work
-- References
-
 ## Abstract 
 
 by building two mobile robots using Unified Robot Description Format which is an XML format for representing a robot model for Gazebo and RViz environment then by Creating a ROS package to launch these models in Gazebo and RViz and using packages like AMCL and the Navigation Stack for localizing the robot in a provided map, then by Exploring, adding, and tuning specific parameters corresponding to each package to achieve the best possible localization results.
+
+
 
 ## Introduction
 
@@ -36,11 +28,8 @@ The first could be in the form of Cartesian or Polar coordinates or geographic l
 
 Consider a robot with an internal map of its environment. When the robot moves around, it needs to know where it is within this map. Determining its location and rotation (more generally, the pose) by using its sensor observations is known as robot localization.
 
-Because the robot may not always behave in a perfectly predictable way, it generates many random guesses of where it is going to be next. These guesses are known as particles. Each particle contains a full description of a possible future state. When the robot observes the environment, it discards particles inconsistent with this observation, and generates more particles close to those that appear consistent. In the end, hopefully most particles converge to where the robot actually is.
-
-
-
 ![map](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/map.png)
+
 
 
 ## Background 
@@ -52,6 +41,8 @@ Kalman filtering, also known as linear quadratic estimation (LQE), is an algorit
 
 Monte Carlo localization (MCL), also known as particle filter localization, is an algorithm for robots to localize using a particle filter. Given a map of the environment, the algorithm estimates the position and orientation of a robot as it moves and senses the environment. The algorithm uses a particle filter to represent the distribution of likely states, with each particle representing a possible state, a hypothesis of where the robot is. The algorithm typically starts with a uniform random distribution of particles over the configuration space, meaning the robot has no information about where it is and assumes it is equally likely to be at any point in space. Whenever the robot moves, it shifts the particles to predict its new state after the movement. Whenever the robot senses something, the particles are resampled based on recursive Bayesian estimation, how well the actual sensed data correlate with the predicted state. Ultimately, the particles should converge towards the actual position of the robot.
 
+
+
 during this project the AMCL package will be used to localize the robot in the provided map.
 
 ![MCl](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/MCL.png)
@@ -60,15 +51,19 @@ during this project the AMCL package will be used to localize the robot in the p
 ## Model Configuration
 
 
+## Results
 
+## Discussion
 
-
+## Future Work
 
 
 
 
 ![robot2](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R2.png)
 
+
+## References
 https://en.wikipedia.org/wiki/Monte_Carlo_localization
 
 https://en.wikibooks.org/wiki/Robotics/Navigation/Localization
