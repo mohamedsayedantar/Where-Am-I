@@ -220,6 +220,9 @@ $ source devel/setup.bash
 $ roslaunch udacity_bot udacity_world.launch
 ```
 
+![robot2](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R2.png)
+
+
 Note : the previous instructions for the provided robot, the same made for the other robot model at `udacity_world2.launch`, `robot_description2.launch`, `udacity_bot2.gazebo` and `udacity_bot2.xacro`.
 
 ### AMCL
@@ -340,7 +343,6 @@ copy the files from this repo located `config` folder to your config folder.
 
 
 
-![robot2](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R2.png)
 
 
 ## References
