@@ -321,21 +321,21 @@ then you will see some thing like that for the two robots
 ### parameters 
 
 1. for `local_costmap_params.yaml` 
-    - update_frequency: 20.0  -> to reduce command warnings 
-    - publish_frequency: 25.0  -> to reduce command warnings 
-    - width: 3.5  -> to force the local planing to maximum 3.5 meters to improve the movement of the robot
-    - height: 3.5  -> the same for the width
-    - resolution: 0.05  -> agood resolution.
+    - update_frequency: 20.0  --> to reduce command warnings 
+    - publish_frequency: 25.0  --> to reduce command warnings 
+    - width: 3.5  --> to force the local planing to maximum 3.5 meters to improve the movement of the robot
+    - height: 3.5  --> the same for the width
+    - resolution: 0.05  --> agood resolution.
     
 2. for `global_costmap_params.yaml`
-    - pdate_frequency: 15.0  ->to reduce command warnings 
-    - publish_frequency: 20.0  ->to reduce command warnings 
+    - pdate_frequency: 15.0  -->to reduce command warnings 
+    - publish_frequency: 20.0  -->to reduce command warnings 
     - width: 500.0
     - height: 500.0
     - resolution: 0.05
 
 3. for `base_local_planner_params.yaml`
-    - sim_time: 7.5  -> proper for the robot action 
+    - sim_time: 7.5  --> proper for the robot action 
 
 4. for `costmap_common_params.yaml` the following parameters are proper for this robot and environment
     - obstacle_range: 1
@@ -344,10 +344,10 @@ then you will see some thing like that for the two robots
     - inflation_radius: 0.7
 
 5. for `amcl.launch`
-    - min_particles set to 100  -> to prevent any value of particles lower than 100
-    - max_particles set to 200  -> increasing it almost increase the accuracy
-    - update_min_d set to 0.005  -> to increase the rate of refresh or update data lead to faster conversion 
-    - update_min_a set to 0.01  -> the same as d
+    - min_particles set to 100  --> to prevent any value of particles lower than 100
+    - max_particles set to 200  --> increasing it almost increase the accuracy
+    - update_min_d set to 0.005  --> to increase the rate of refresh or update data lead to faster conversion 
+    - update_min_a set to 0.01  --> the same as d
     
 
 
