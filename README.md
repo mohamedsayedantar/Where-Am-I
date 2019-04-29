@@ -45,6 +45,10 @@ Monte Carlo localization (MCL), also known as particle filter localization, is a
 
 ## Background 
 
+several approaches to localize robots pose like Kalman Filter, Markov Localization, Grid Localization, Monte Carlo Localization. 
+during this project the AMCL package will be used to localize the robot in the provided map.
+
+![MCl](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/MCL.png)
 
 
 
