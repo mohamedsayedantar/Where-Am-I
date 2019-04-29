@@ -167,11 +167,9 @@ $ nano udacity_bot.xacro
 ```
 now you can build your robot model in the xacro file below my 2 robot models
 
-the xacro file for the provided robot at
-https://github.com/mohamedsayedantar/udacity_bot/blob/master/urdf/udacity_bot.xacro
+the xacro file for the provided robot at https://github.com/mohamedsayedantar/udacity_bot/blob/master/urdf/udacity_bot.xacro
 
-the xacro file for the new robot at
-https://github.com/mohamedsayedantar/udacity_bot/blob/master/urdf/udacity_bot2.xacro
+the xacro file for the new robot at https://github.com/mohamedsayedantar/udacity_bot/blob/master/urdf/udacity_bot2.xacro
 
 
 Create a new launch file that will help load the URDF file.
