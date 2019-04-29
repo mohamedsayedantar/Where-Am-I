@@ -310,12 +310,12 @@ Note : the configuration for the RViz located at `myRviz.rviz` file
 then you will see some thing like that for the two robots
 
 #### robot 1
-![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R2.png)
-![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R2.png)
+![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R12.png)
+![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R13.png)
 
 #### robot 2
-![robot2](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R2.png)
-![robot2](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R2.png)
+![robot2](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R11.png)
+![robot2](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R14.png)
 
 
 
