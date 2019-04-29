@@ -364,21 +364,13 @@ below some photos showing the moment of arrival for each robot and during moving
 
 ## Discussion
 
+the two robots reached their goal and successfully determined their location and orientation, although the two robots have different number of joints and links and one of them has two laser sensors and the other has only one they eventually reach thier goal at almost the same time, this happens due to same parameters for both robots wich lead to almost no change in their performance, maybe their is a slight change but this can be overcome by modifying the config parameters.
 
-
-
-
-
-
-
-
+for the kidnapped robot problem the mcl may give a good results and may give bad results according to the number of nearby particles, may we can solve this problem by increasing the number of spread particles on the map or by refreshing the particles pose periodically, many other approaches to solve this problem may lead to better results, also these robots will work fine for static maps in industry like cleaning robots in home or factories.
 
 ## Future Work
 
-
-
-
-
+tuning the parameters in the four files inside config folder may lead to better performance specially the running time and the speed of robot movement on the right path, but for parameters in the amcl file tunning it may lead to small change in the performane because the pose already estimated with good accuracy. 
 
 ## References
 https://en.wikipedia.org/wiki/Monte_Carlo_localization
