@@ -292,7 +292,30 @@ $ cd config
 
 copy the files from this repo located `config` folder to your config folder.
 
+### Launch Setup
 
+we have the robot, the map, the localization and navigation nodes. Let’s launch it all and test it!
+```
+$ cd /home/workspace/catkin_ws/
+$ roslaunch udacity_bot udacity_world.launch
+```
+
+then on another terminal 
+```
+$ roslaunch udacity_bot amcl.launch
+```
+
+Note : the configuration for the RViz located at `myRviz.rviz` file
+
+then you will see some thing like that for the two robots
+
+#### robot 1
+![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R2.png)
+![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R2.png)
+
+#### robot 2
+![robot2](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R2.png)
+![robot2](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R2.png)
 
 
 
