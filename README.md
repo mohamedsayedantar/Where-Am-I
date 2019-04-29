@@ -44,12 +44,15 @@ Because the robot may not always behave in a perfectly predictable way, it gener
 
 
 ## Background 
+localization is a core element for the mobile robots, several approaches to localize robots pose like Kalman Filter, Markov Localization, Grid Localization, Monte Carlo Localization. 
 
-several approaches to localize robots pose like Kalman Filter, Markov Localization, Grid Localization, Monte Carlo Localization. 
 
-during this project the AMCL package will be used to localize the robot in the provided map.
+Kalman filtering, also known as linear quadratic estimation (LQE), is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement alone, by estimating a joint probability distribution over the variables for each timeframe. The filter is named after Rudolf E. Kálmán, one of the primary developers of its theory.
+
 
 Monte Carlo localization (MCL), also known as particle filter localization, is an algorithm for robots to localize using a particle filter. Given a map of the environment, the algorithm estimates the position and orientation of a robot as it moves and senses the environment. The algorithm uses a particle filter to represent the distribution of likely states, with each particle representing a possible state, a hypothesis of where the robot is. The algorithm typically starts with a uniform random distribution of particles over the configuration space, meaning the robot has no information about where it is and assumes it is equally likely to be at any point in space. Whenever the robot moves, it shifts the particles to predict its new state after the movement. Whenever the robot senses something, the particles are resampled based on recursive Bayesian estimation, how well the actual sensed data correlate with the predicted state. Ultimately, the particles should converge towards the actual position of the robot.
+
+during this project the AMCL package will be used to localize the robot in the provided map.
 
 ![MCl](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/MCL.png)
 
