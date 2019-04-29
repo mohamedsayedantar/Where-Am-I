@@ -82,20 +82,143 @@ $ cd worlds
 $ nano udacity.world
 ```
 
+Add the following to `udacity.world`
+
+```xml
+<?xml version="1.0" ?>
+
+<sdf version="1.4">
+
+  <world name="default">
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- World camera -->
+    <gui fullscreen='0'>
+      <camera name='world_camera'>
+        <pose>4.927360 -4.376610 3.740080 0.000000 0.275643 2.356190</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+  </world>
+</sdf>
+```
+
+Next, we will create a launch file. Launch files in ROS allow us to execute more than one node simultaneously, which helps avoid a potentially tedious task of defining and launching several nodes in separate shells or terminals.
+
+```
+$ cd ..
+$ cd launch
+$ nano udacity_world.launch
+```
+
+Add the following to your launch file.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+  <arg name="world" default="empty"/> 
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find udacity_bot)/worlds/udacity.world"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <arg name="debug" value="$(arg debug)"/>
+  </include>
+
+</launch>
+```
+
+You can now use the launch file to launch your Gazebo environment!
+
+```
+$ cd /home/workspace/catkin_ws/
+$ catkin_make
+$ source devel/setup.bash
+$ roslaunch udacity_bot udacity_world.launch
+```
+
+### for Robot URDF
+
+Let's first create a new folder in your package directory and an empty xacro file for the robot's URDF description.
+
+```
+$ cd /home/workspace/catkin_ws/src/udacity_bot/
+$ mkdir urdf
+$ cd urdf
+$ nano udacity_bot.xacro
+```
+now you can build your robot model in the xacro file below my 2 robot models
+
+the xacro file for the provided robot at
+https://github.com/mohamedsayedantar/udacity_bot/blob/master/urdf/udacity_bot.xacro
+
+the xacro file for the new robot at
+https://github.com/mohamedsayedantar/udacity_bot/blob/master/urdf/udacity_bot2.xacro
 
 
+Create a new launch file that will help load the URDF file.
+```
+$ cd /home/workspace/catkin_ws/src/udacity_bot/launch/
+$ nano robot_description.launch
+```
 
+Copy the following into the above file.
 
+```xml
+<?xml version="1.0"?>
+<launch>
 
+  <!-- send urdf to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find udacity_bot)/urdf/udacity_bot.xacro'" />
 
+</launch>
+```
 
+Next, in the launch folder, you will have to update `udacity_world.launch` so that Gazebo can load that URDF (the robot model).
+```
+$ nano udacity_world.launch
+```
 
+Add the following to the launch file (after `<launch>`)
 
+```xml
+<include file="$(find udacity_bot)/launch/robot_description.launch"/>
+```
 
+Add the following to the launch file (before `</launch>`)
+```xml
+<!--spawn a robot in gazebo world-->
 
+<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" 
+output="screen" args="-urdf -param robot_description -model udacity_bot"/>
+```
 
+Let's launch everything and check if the robot loads up properly.
 
-
+```
+$ cd /home/workspace/catkin_ws/
+$ catkin_make
+$ source devel/setup.bash
+$ roslaunch udacity_bot udacity_world.launch
+```
 
 
 
