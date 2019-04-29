@@ -354,49 +354,24 @@ then you will see some thing like that for the two robots
 
 the two robots reach to their goal successfully without any collision with any of the barriers, both of the robots almost have the same performance and reach the goal almost with the same time.
 
-below some photos showing the moment of arrival for each robot.
+below some photos showing the moment of arrival for each robot and during moving to the goal.
 
-![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R15.png)
-![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R16.png)
-![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R17.png)
-![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R18.png)
-![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R110.png)
-![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R112.png)
-![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R113.png)
-![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R114.png)
+![robot](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R15.png)
+![robot](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R17.png)
+![robot](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R18.png)
+![robot](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R110.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Results
 
 ## Discussion
+
+
+
+
+
+
+
+
+
 
 ## Future Work
 
@@ -409,3 +384,9 @@ below some photos showing the moment of arrival for each robot.
 https://en.wikipedia.org/wiki/Monte_Carlo_localization
 
 https://en.wikibooks.org/wiki/Robotics/Navigation/Localization
+
+
+![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R112.png)
+![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R113.png)
+![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R114.png)
+![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R16.png)
