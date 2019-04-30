@@ -45,7 +45,7 @@ Monte Carlo localization (MCL), also known as particle filter localization, is a
 
 during this project the AMCL package will be used to localize the robot in the provided map.
 
-![MCl](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/MCL.png)
+![MCl](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/MCL2.png)
 
 
 ## Model Configuration
@@ -379,6 +379,5 @@ https://en.wikibooks.org/wiki/Robotics/Navigation/Localization
 
 
 ![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R112.png)
-![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R113.png)
 ![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R114.png)
 ![robot1](https://github.com/mohamedsayedantar/udacity_bot/blob/master/images/R16.png)
